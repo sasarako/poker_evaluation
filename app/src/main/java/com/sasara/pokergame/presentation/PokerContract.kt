@@ -14,9 +14,11 @@ interface PokerContract {
 
         fun showGameResult(resultMsg: String)
 
-        fun updateFirstPlayerCards()
+        fun updateFirstPlayerCards(denotedCards: String)
 
-        fun updateSecondPlayerCards()
+        fun updateSecondPlayerCards(denotedCards: String)
+
+        fun showErrorMsg(errorMsg: String)
 
         fun clearAllView()
     }
@@ -25,6 +27,10 @@ interface PokerContract {
      * View call presenter
      */
     interface presenter : BaseUserActionListener {
+
+        fun addFirstPlayerCards(denotedCard: String)
+
+        fun addSecondPlayerCards(denotedCard: String)
 
         fun analysisResult()
 

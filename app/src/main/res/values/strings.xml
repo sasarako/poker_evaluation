@@ -5,4 +5,7 @@
     <string name="second_player_name" translatable="false">Somsak</string>
 
     <string name="hint_your_hand_card" translatable="false">Fill your hand card</string>
+    <string name="main_add_card_txt" translatable="false">Add card</string>
+    <string name="main_calculate_result_txt" translatable="false">Calculate them !!</string>
+
 </resources>

@@ -1,7 +1,5 @@
 package com.sasara.pokergame.data
 
-import android.util.Log
-
 /**
  * Created by sasara on 18/1/2018 AD.
  */
@@ -14,10 +12,10 @@ interface CardProperty {
     fun getRank(): Int
 }
 
-class Card(private val donoted: String) : CardProperty {
+class Card(private val denoted: String) : CardProperty {
 
     override fun getShortName(): String {
-        return donoted
+        return denoted
     }
 
     override fun getLongName(): String {
@@ -25,11 +23,11 @@ class Card(private val donoted: String) : CardProperty {
     }
 
     override fun getValue(): String {
-        return if (donoted.isNotEmpty()) donoted[0].toString() else ""
+        return if (denoted.isNotEmpty()) denoted[0].toString() else ""
     }
 
     override fun getSuit(): String {
-        return if (donoted.length >= 2) donoted[1].toString() else ""
+        return if (denoted.length >= 2) denoted[1].toString() else ""
     }
 
     override fun getRank(): Int {
@@ -38,10 +36,11 @@ class Card(private val donoted: String) : CardProperty {
         }
 
         return when (getValue().toUpperCase()) {
-            "J" -> 10
-            "Q" -> 11
-            "K" -> 12
-            "A" -> 11
+            "T" -> 10
+            "J" -> 11
+            "Q" -> 12
+            "K" -> 13
+            "A" -> 14
 
             else -> 0
         }

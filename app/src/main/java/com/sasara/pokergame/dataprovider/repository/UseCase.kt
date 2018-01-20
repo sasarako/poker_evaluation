@@ -11,8 +11,3 @@ interface ObservableUseCase<T> : UseCase {
     fun toObservable(): Observable<T>
 
 }
-
-interface ObservableUseCaseTeamScore<T> : UseCase {
-    fun toObservable(url: String, leagueCode: String): Observable<T>
-
-}

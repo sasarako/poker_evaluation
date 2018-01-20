@@ -22,13 +22,24 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/firstPlayerOnHandCard_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/horizontal_margin"
+            tools:text="testtttttt" />
+
         <EditText
             android:id="@+id/poker_firstPlayerCard_editText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:digits="0,1,2,3,4,5,6,7,8,9,jqkacdsh"
+            android:ellipsize="end"
+            android:gravity="start|center_vertical"
             android:hint="@string/hint_your_hand_card"
-            android:inputType="text" />
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:maxLength="10"
+            android:maxLines="1" />
 
         <TextView
             android:id="@+id/poker_firstPlayer_textView"
@@ -38,7 +49,8 @@
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="@string/main_add_card_txt" />
     </LinearLayout>
 
 
@@ -51,13 +63,24 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/secondPlayerOnHandCard_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/horizontal_margin"
+            tools:text="testtttttt" />
+
         <EditText
             android:id="@+id/poker_secondPlayerCard_editText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:digits="0,1,2,3,4,5,6,7,8,9,jqkacdsh"
+            android:ellipsize="end"
+            android:gravity="start|center_vertical"
             android:hint="@string/hint_your_hand_card"
-            android:inputType="text" />
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:maxLength="10"
+            android:maxLines="1" />
 
         <TextView
             android:id="@+id/poker_secondPlayer_textView"
@@ -67,7 +90,18 @@
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="@string/main_add_card_txt" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/poker_calculate_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/poker_firstPlayer_linearLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/primary_margin"
+        android:text="@string/main_calculate_result_txt" />
+
 
 </RelativeLayout>
