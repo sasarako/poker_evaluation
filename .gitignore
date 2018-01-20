@@ -83,3 +83,6 @@ build/android-profile/profile-2018-01-18-15-30-35-387.json
 build/android-profile/profile-2018-01-18-15-30-35-387.rawproto
 build/android-profile/profile-2018-01-18-15-32-02-126.json
 build/android-profile/profile-2018-01-18-15-32-02-126.rawproto
+.idea/libraries/io_reactivex_rxjava2_rxandroid_2_0_1.xml
+.idea/libraries/io_reactivex_rxjava2_rxjava_2_1_5_jar.xml
+.idea/libraries/org_reactivestreams_reactive_streams_1_0_1_jar.xml
