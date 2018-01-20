@@ -37,13 +37,22 @@ class PokerPresenter(view: PokerContract.View,
 
     override fun analysisResult() {
 
+        if (p1OnHandCardAddRemoveUseCase.getOnHandCards().size != 5) {
+            //plural
+            view?.showErrorMsg(errorMsg = "player 1 need more cards")
+            return
+        }
+        if (p2OnHandCardAddRemoveUseCase.getOnHandCards().size != 5) {
+            view?.showErrorMsg(errorMsg = "player 2 need more cards")
+            return
+        }
+
         compareResultUseCase.toObservable().subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ compareResult: CompareResult ->
-                    Log.d("koko", "compareResult ${compareResult}")
-                    view?.showGameResult("${compareResult.result} with ${compareResult.resultMsg}")
+                    view?.showGameResult(compareResult.resultMsg)
                 }, { t: Throwable ->
-                    Log.d("koko", "throw ${t.message}")
+
                 })
     }
 

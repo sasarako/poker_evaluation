@@ -1,6 +1,5 @@
 package com.sasara.pokergame.dataprovider
 
-import android.util.Log
 import com.sasara.pokergame.data.Card
 import com.sasara.pokergame.data.OnHandResult
 import com.sasara.pokergame.hand.PokerHandType
@@ -65,16 +64,14 @@ class RuleAnalysis() : ResultInterface<OnHandResult> {
             it.getRank()
         }.toMutableList()
 
-        if (fiveSortedCopied.isEmpty()) {
+        if (fiveSortedCopied.size < 5) {
             return false
         }
 
         var tempCard = fiveSortedCopied[0].getRank()
-        Log.d("koko", "tempCard $tempCard")
 
         fiveSortedCopied.removeAt(0)
         fiveSortedCopied.forEach {
-            Log.d("koko", "it ${it.getRank()}")
             if (it.getRank() != tempCard + 1) {
                 return false
             }

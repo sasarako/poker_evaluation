@@ -68,6 +68,10 @@ class PokerActivity : AppCompatActivity(), PokerContract.View {
         poker_calculate_button.setOnClickListener({
             presenter.analysisResult()
         })
+
+        poker_newGame_button.setOnClickListener {
+            presenter.startNewGame()
+        }
     }
 
     override fun showGameResult(resultMsg: String) {
