@@ -1,6 +1,5 @@
 # Poker Evaluation
 ===================================
-
 This sample project to evaluate poker cards on hand ,Compare between 2 on hand cards ,Which one higher
 and why higher than another.
 First player is represented to Somchai and Second player is represented to Somsak.
@@ -22,6 +21,7 @@ Somsak: 2C 3H 4S 8C AH
 Outputs->
 Somsak wins. with high card: Ace
 
+
 # Step to play
 ===================================
 - In main page (first page) ,You will see 2 input text blocks and several buttons.
@@ -34,6 +34,7 @@ Somsak wins. with high card: Ace
   You can clear them by clear cards button if you want to fill another group of cards.
 - Press Compare button to compare which one higher and let see the result but If someone haven't enough card,App will show alert msg
 - Finally, You could play again by pressing New Game button on top of screen.
+
 
 # Code structure and dependencies
 ===================================
