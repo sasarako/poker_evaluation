@@ -41,7 +41,8 @@ open class CompareResultUseCase(private val cardAnalysisUseCase1: CardAnalysisUs
                     CompareResult(CompareResult.TIE, TIE)
                 }
 
-                //Compare secondary card
+                //Compare secondary rank
+                //Sample 4S 5S 4C 5C 9H = 9,4,5 (Compare start by last index to first index)
                 t1.compareRanks.reversed().forEachIndexed { index: Int, value: Int ->
                     val value1 = value
                     val value2 = t2.compareRanks.reversed()[index]

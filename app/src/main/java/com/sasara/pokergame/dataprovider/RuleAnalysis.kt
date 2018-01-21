@@ -21,11 +21,16 @@ class RuleAnalysis() : ResultInterface<OnHandResult> {
 
     override fun getAnalysisResult(cardList: List<Card>): Observable<OnHandResult> {
         fiveSortedCards = cardList.sortedBy { it.getRank() }
-        //TODO comment
+
+        //Group by rank value and sorted them convert to List of pair<Rank,Size>
+        //Sample 4S 5S 4C 5C 9H = ("9",size = 1),("4",size = 2) , ("5", size = 2)
         groupedAndSortedCards = fiveSortedCards.groupBy({ it.getRank() }).toSortedMap().toList().
                 sortedWith(compareBy({ it.second.size }, { it.first }))
 
+        //Generate secondary compare value
+        //Sample 4S 5S 4C 5C 9H = 9,4,5 (Compare start by last index to first index)
         val compareRanks = groupedAndSortedCards.map { it.first }.map { it }
+
 
         val type: PokerHandType =
                 when {
@@ -41,6 +46,8 @@ class RuleAnalysis() : ResultInterface<OnHandResult> {
                     else -> PokerHandType.UNDEFINED
                 }
 
+        //Type is primary factor to compare
+        //CompareRanks is secondary factor to compare
         return Observable.just(OnHandResult(type = type,
                 compareRanks = compareRanks))
 
@@ -55,6 +62,7 @@ class RuleAnalysis() : ResultInterface<OnHandResult> {
         if (fiveSortedCards.size < 5) {
             return false
         }
+        //All cards are same suit.
         return fiveSortedCards.all { it.getSuit() == fiveSortedCards[0].getSuit() }
     }
 
@@ -77,27 +85,37 @@ class RuleAnalysis() : ResultInterface<OnHandResult> {
             }
             tempCard = it.getRank()
         }
-
+        //For sorted 5 cards ,Next card value = current value +1
         return true
     }
 
     private fun isFourOfAKind(): Boolean {
+        //Amount of grouped with rank
+        //Same value = 4
         return groupedAndSortedCards.size == 2 && groupedAndSortedCards[1].second.size == 4
     }
 
     private fun isFullHouse(): Boolean {
+        //Amount of grouped with rank
+        //Same primary value = 3 and size of grouping = 2 (with 1 pair same rank)
         return groupedAndSortedCards.size == 2 && groupedAndSortedCards[1].second.size == 3
     }
 
     private fun isThreeOfAKind(): Boolean {
+        //Amount of grouped with rank
+        //Same primary value = 3 and size of grouping = 3 (without another same rank)
         return groupedAndSortedCards.size == 3 && groupedAndSortedCards[2].second.size == 3
     }
 
     private fun isTwoPairs(): Boolean {
+        //Amount of grouped with rank
+        //Same primary value = 2 and size of grouping = 2
         return groupedAndSortedCards.size == 3 && groupedAndSortedCards[2].second.size == 2
     }
 
     private fun isOnePair(): Boolean {
+        //Amount of grouped with rank
+        //Same primary value = 2 and size of grouping = 4 (without another same rank)
         return groupedAndSortedCards.size == 4
     }
 
