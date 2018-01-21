@@ -7,5 +7,6 @@
 
     <!-- Font Size-->
     <dimen name="player_name_font_size">20sp</dimen>
+    <dimen name="result_font_size">20sp</dimen>
 
 </resources>
