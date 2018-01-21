@@ -6,6 +6,7 @@ and why higher than another.
 First player is represented to Somchai and Second player is represented to Somsak.
 
 Basic card
+
 Each card has a suit which is one of Clubs, Diamonds, Hearts,
 or Spades (denoted C, D, H, and S in the input data). Each card also has a value which is one
 of 2, 3, 4, 5, 6, 7, 8, 9, 10, jack, queen, king, ace (denoted 2, 3, 4, 5, 6, 7, 8, 9, T, J, Q, K, A).
