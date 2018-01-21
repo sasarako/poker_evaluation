@@ -20,6 +20,16 @@ interface PokerContract {
 
         fun showErrorMsg(errorMsg: String)
 
+        fun showErrorAddingFail()
+
+        fun showErrorP1NotEnoughCard()
+
+        fun showErrorP2NotEnoughCard()
+
+        fun clearP1View()
+
+        fun clearP2View()
+
         fun clearAllView()
     }
 
@@ -33,6 +43,10 @@ interface PokerContract {
         fun addSecondPlayerCards(denotedCard: String)
 
         fun analysisResult()
+
+        fun clearP1Cards()
+
+        fun clearP2Cards()
 
         fun startNewGame()
 

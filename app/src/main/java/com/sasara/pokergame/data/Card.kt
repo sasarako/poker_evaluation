@@ -3,6 +3,7 @@ package com.sasara.pokergame.data
 /**
  * Created by sasara on 18/1/2018 AD.
  */
+
 interface CardProperty {
 
     fun getShortName(): String
@@ -41,10 +42,7 @@ class Card(private val denoted: String) : CardProperty {
             "Q" -> 12
             "K" -> 13
             "A" -> 14
-
             else -> 0
         }
     }
-
-
 }

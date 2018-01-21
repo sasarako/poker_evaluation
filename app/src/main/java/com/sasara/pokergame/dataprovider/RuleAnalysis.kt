@@ -27,18 +27,19 @@ class RuleAnalysis() : ResultInterface<OnHandResult> {
 
         val compareRanks = groupedAndSortedCards.map { it.first }.map { it }
 
-        val type = when {
-            isStraightFlush() -> PokerHandType.STRAIGHT_FLUSH
-            isFourOfAKind() -> PokerHandType.FOUR_OF_A_KIND
-            isFullHouse() -> PokerHandType.FULL_HOUSE
-            isFlush() -> PokerHandType.FLUSH
-            isStraight() -> PokerHandType.STRAIGHT
-            isThreeOfAKind() -> PokerHandType.THREE_OF_A_KIND
-            isTwoPairs() -> PokerHandType.TWO_PAIRS
-            isOnePair() -> PokerHandType.PAIR
-            isHighCard() -> PokerHandType.HIGH_CARD
-            else -> PokerHandType.Undefined
-        }
+        val type: PokerHandType =
+                when {
+                    isStraightFlush() -> PokerHandType.STRAIGHT_FLUSH
+                    isFourOfAKind() -> PokerHandType.FOUR_OF_A_KIND
+                    isFullHouse() -> PokerHandType.FULL_HOUSE
+                    isFlush() -> PokerHandType.FLUSH
+                    isStraight() -> PokerHandType.STRAIGHT
+                    isThreeOfAKind() -> PokerHandType.THREE_OF_A_KIND
+                    isTwoPairs() -> PokerHandType.TWO_PAIRS
+                    isOnePair() -> PokerHandType.PAIR
+                    isHighCard() -> PokerHandType.HIGH_CARD
+                    else -> PokerHandType.UNDEFINED
+                }
 
         return Observable.just(OnHandResult(type = type,
                 fiveSortedOnHandCards = fiveSortedCards,

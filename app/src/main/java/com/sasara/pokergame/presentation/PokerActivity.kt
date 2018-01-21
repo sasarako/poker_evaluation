@@ -72,6 +72,15 @@ class PokerActivity : AppCompatActivity(), PokerContract.View {
         poker_newGame_button.setOnClickListener {
             presenter.startNewGame()
         }
+
+        firstPlayer_clearCards_button.setOnClickListener {
+            presenter.clearP1Cards()
+        }
+
+        secondPlayer_clearCards_button.setOnClickListener {
+            presenter.clearP2Cards()
+        }
+
     }
 
     override fun showGameResult(resultMsg: String) {
@@ -88,6 +97,34 @@ class PokerActivity : AppCompatActivity(), PokerContract.View {
 
     override fun showErrorMsg(errorMsg: String) {
         Toast.makeText(applicationContext, errorMsg, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun showErrorAddingFail() {
+        Toast.makeText(applicationContext,
+                getString(R.string.alert_error_adding_fail),
+                Toast.LENGTH_SHORT).show()
+    }
+
+    override fun showErrorP1NotEnoughCard() {
+        Toast.makeText(applicationContext,
+                getString(R.string.alert_error_p1_need_more_card),
+                Toast.LENGTH_SHORT).show()
+    }
+
+    override fun showErrorP2NotEnoughCard() {
+        Toast.makeText(applicationContext,
+                getString(R.string.alert_error_p2_need_more_card),
+                Toast.LENGTH_SHORT).show()
+    }
+
+    override fun clearP1View() {
+        firstPlayerOnHandCard_textView.text = ""
+        poker_result_textView.text = ""
+    }
+
+    override fun clearP2View() {
+        secondPlayerOnHandCard_textView.text = ""
+        poker_result_textView.text = ""
     }
 
     override fun clearAllView() {

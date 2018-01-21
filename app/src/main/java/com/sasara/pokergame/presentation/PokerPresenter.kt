@@ -16,21 +16,20 @@ class PokerPresenter(view: PokerContract.View,
                      private val p2OnHandCardAddRemoveUseCase: OnHandCardAddRemoveUseCase,
                      private val compareResultUseCase: CompareResultUseCase) : PokerContract.presenter {
 
-
     private var view by ReadWriteWeakRefDelegate<PokerPresenter,
             PokerContract.View>(view)
 
     override fun addFirstPlayerCards(denotedCard: String) {
 
         if (!p1OnHandCardAddRemoveUseCase.isCanAddToHand(denotedCard)) {
-            view?.showErrorMsg("Adding fail")
+            view?.showErrorAddingFail()
         }
         view?.updateFirstPlayerCards(p1OnHandCardAddRemoveUseCase.getOnHandAllCardsDenoted())
     }
 
     override fun addSecondPlayerCards(denotedCard: String) {
         if (!p2OnHandCardAddRemoveUseCase.isCanAddToHand(denotedCard)) {
-            view?.showErrorMsg("Adding fail")
+            view?.showErrorAddingFail()
         }
         view?.updateSecondPlayerCards(p2OnHandCardAddRemoveUseCase.getOnHandAllCardsDenoted())
     }
@@ -39,11 +38,11 @@ class PokerPresenter(view: PokerContract.View,
 
         if (p1OnHandCardAddRemoveUseCase.getOnHandCards().size != 5) {
             //plural
-            view?.showErrorMsg(errorMsg = "player 1 need more cards")
+            view?.showErrorP1NotEnoughCard()
             return
         }
         if (p2OnHandCardAddRemoveUseCase.getOnHandCards().size != 5) {
-            view?.showErrorMsg(errorMsg = "player 2 need more cards")
+            view?.showErrorP2NotEnoughCard()
             return
         }
 
@@ -55,6 +54,17 @@ class PokerPresenter(view: PokerContract.View,
 
                 })
     }
+
+    override fun clearP1Cards() {
+        p1OnHandCardAddRemoveUseCase.removeAllCards()
+        view?.clearP1View()
+    }
+
+    override fun clearP2Cards() {
+        p2OnHandCardAddRemoveUseCase.removeAllCards()
+        view?.clearP2View()
+    }
+
 
     override fun startNewGame() {
         p1OnHandCardAddRemoveUseCase.removeAllCards()

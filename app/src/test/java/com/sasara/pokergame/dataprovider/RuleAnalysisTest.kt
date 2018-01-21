@@ -40,7 +40,7 @@ class RuleAnalysisTest {
 
         val testObserver = ruleAnalysis.getAnalysisResult(cardList).test()
         testObserver.assertValue {
-            it.type == PokerHandType.FLUSH
+            it.type.value == PokerHandType.FLUSH.value
             it.compareRanks[it.compareRanks.lastIndex] == 14
         }
 
