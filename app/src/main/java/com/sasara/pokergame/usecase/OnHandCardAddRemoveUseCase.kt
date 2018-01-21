@@ -48,7 +48,6 @@ class CardAddRemoveUseCaseImpl(private val cardProvider: CardProviderInterface<C
             }
             cardProvider.addCard(Card(eachCardString))
         }
-
         return true
     }
 

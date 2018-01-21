@@ -6,7 +6,7 @@
 
     <string name="hint_on_hand_card" translatable="false">Fill on hand cards</string>
     <string name="main_clear_card_txt" translatable="false">Clear cards</string>
-    <string name="main_calculate_result_txt" translatable="false">Compare them !!</string>
+    <string name="main_calculate_result_txt" translatable="false">Compare</string>
     <string name="main_new_game_txt" translatable="false">New Game</string>
 
     <string name="alert_error_adding_fail" translatable="false">Adding fail</string>

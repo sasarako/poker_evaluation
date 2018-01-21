@@ -11,7 +11,8 @@
         android:layout_above="@+id/poker_result_textView"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/primary_margin"
-        android:text="@string/main_new_game_txt" />
+        android:text="@string/main_new_game_txt"
+        android:textAllCaps="false" />
 
 
     <TextView
@@ -60,6 +61,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/first_player_name"
+            android:textColor="@color/black"
             android:textSize="@dimen/player_name_font_size" />
 
         <Button
@@ -67,7 +69,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/main_clear_card_txt"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:theme="@style/SecondaryButton" />
     </LinearLayout>
 
 
@@ -105,6 +108,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/second_player_name"
+            android:textColor="@color/black"
             android:textSize="@dimen/player_name_font_size" />
 
         <Button
@@ -112,7 +116,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/main_clear_card_txt"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:theme="@style/SecondaryButton" />
     </LinearLayout>
 
     <Button
@@ -122,7 +127,9 @@
         android:layout_below="@id/poker_firstPlayer_linearLayout"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/primary_margin"
-        android:text="@string/main_calculate_result_txt" />
+        android:text="@string/main_calculate_result_txt"
+        android:textAllCaps="false"
+        android:theme="@style/PrimaryButton" />
 
 
 </RelativeLayout>
