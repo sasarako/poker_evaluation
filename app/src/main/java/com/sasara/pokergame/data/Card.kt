@@ -15,6 +15,15 @@ interface CardProperty {
 
 class Card(private val denoted: String) : CardProperty {
 
+    companion object {
+        //Rank const for above 1-9 value
+        const val Ten = 10
+        const val Jack = 11
+        const val Queen = 12
+        const val King = 13
+        const val Ace = 14
+    }
+
     override fun getShortName(): String {
         return denoted
     }
@@ -37,11 +46,11 @@ class Card(private val denoted: String) : CardProperty {
         }
 
         return when (getValue().toUpperCase()) {
-            "T" -> 10
-            "J" -> 11
-            "Q" -> 12
-            "K" -> 13
-            "A" -> 14
+            "T" -> Ten
+            "J" -> Jack
+            "Q" -> Queen
+            "K" -> King
+            "A" -> Ace
             else -> 0
         }
     }
