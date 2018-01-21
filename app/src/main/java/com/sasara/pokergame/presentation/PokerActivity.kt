@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class PokerActivity : AppCompatActivity(), PokerContract.View {
 
-    lateinit var presenter: PokerPresenter
+    private lateinit var presenter: PokerPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,6 +81,11 @@ class PokerActivity : AppCompatActivity(), PokerContract.View {
             presenter.clearP2Cards()
         }
 
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.cleanUp()
     }
 
     override fun showGameResult(resultMsg: String) {

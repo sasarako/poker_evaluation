@@ -1,11 +1,12 @@
 package com.sasara.pokergame.presentation
 
-import android.util.Log
 import com.sasara.pokergame.common.ReadWriteWeakRefDelegate
 import com.sasara.pokergame.data.CompareResult
+import com.sasara.pokergame.extension.addTo
 import com.sasara.pokergame.usecase.CompareResultUseCase
 import com.sasara.pokergame.usecase.OnHandCardAddRemoveUseCase
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
 /**
@@ -18,6 +19,7 @@ class PokerPresenter(view: PokerContract.View,
 
     private var view by ReadWriteWeakRefDelegate<PokerPresenter,
             PokerContract.View>(view)
+    private var disposeBag = CompositeDisposable()
 
     override fun addFirstPlayerCards(denotedCard: String) {
 
@@ -52,7 +54,7 @@ class PokerPresenter(view: PokerContract.View,
                     view?.showGameResult(compareResult.resultMsg)
                 }, { t: Throwable ->
 
-                })
+                }).addTo(disposeBag)
     }
 
     override fun clearP1Cards() {
@@ -70,6 +72,11 @@ class PokerPresenter(view: PokerContract.View,
         p1OnHandCardAddRemoveUseCase.removeAllCards()
         p2OnHandCardAddRemoveUseCase.removeAllCards()
         view?.clearAllView()
+    }
+
+    override fun cleanUp() {
+        view = null
+        disposeBag.clear()
     }
 
 }
