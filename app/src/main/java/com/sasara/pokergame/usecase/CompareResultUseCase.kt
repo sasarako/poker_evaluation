@@ -29,16 +29,19 @@ open class CompareResultUseCase(private val cardAnalysisUseCase1: CardAnalysisUs
         return cardAnalysisUseCase1.toObservable().zipWith(cardAnalysisUseCase2.toObservable(), BiFunction { t1, t2 ->
 
             if (t1.type.value > t2.type.value) {
+                //first player win with higher type
                 CompareResult(CompareResult.P1_WIN, "$P1_WIN ${t1.type.showName}")
             } else if (t2.type.value > t1.type.value) {
+                //second player win with higher type
                 CompareResult(CompareResult.P2_WIN, "$P2_WIN ${t2.type.showName}")
             } else {
-
+                //Types are equal
                 if (t1.compareRanks.size != t2.compareRanks.size) {
                     //Card invalid Tie as default
                     CompareResult(CompareResult.TIE, TIE)
                 }
 
+                //Compare secondary card
                 t1.compareRanks.reversed().forEachIndexed { index: Int, value: Int ->
                     val value1 = value
                     val value2 = t2.compareRanks.reversed()[index]
@@ -47,7 +50,7 @@ open class CompareResultUseCase(private val cardAnalysisUseCase1: CardAnalysisUs
                         return@BiFunction CompareResult(CompareResult.P1_WIN,
                                 "$P1_WIN ${t1.type.showName}: ${value1.toFullName()}")
                     } else if (value2 > value1) {
-                        return@BiFunction CompareResult(CompareResult.P1_WIN,
+                        return@BiFunction CompareResult(CompareResult.P2_WIN,
                                 "$P2_WIN ${t2.type.showName}: ${value2.toFullName()}")
                     }
                 }

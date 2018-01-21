@@ -26,7 +26,7 @@ class CardAddRemoveUseCaseImpl(private val cardProvider: CardProviderInterface<C
                 forEachIndexed { index: Int, c: Char ->
                     if (index % 2 == 0) {
                         //First index should be value of card (1,2,3,..,A)
-                        if ("123456789TJQKA".contains(c)) {
+                        if ("23456789TJQKA".contains(c)) {
                             cardDenotedFormated += c
                         } else {
                             return false
