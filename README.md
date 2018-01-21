@@ -2,9 +2,9 @@
 ===================================
 
 This sample project to evaluate poker cards on hand ,Compare between 2 on hand cards ,Which one higher
-And why higher than another.
+and why higher than another.
 First player is represented to Somchai
-First player is represented to Somsak
+Second player is represented to Somsak
 
 Basic card
 Each card has a suit which is one of Clubs, Diamonds, Hearts,
@@ -23,10 +23,20 @@ Somsak wins. with high card: Ace
 
 # Step to play
 ===================================
-- In main page (first page) ,You will see 2 input text blocks and several buttons
+- In main page (first page) ,You will see 2 input text blocks and several buttons.
 - Typing first player cards on text block and press DONE on keyboard to finish ,You could input all of on hand cards or
   only few cards such as "2H 3D 5S" but you have to fill all cards before compare them.
   And you could input denoted either with space ("2H 3D 5S 9C KD") or without space ("2H3D5S9CKD").
-  But if you put some wrong denoted ("XY YZ") ,App will showing alert msg.
+  But if you put some wrong denoted ("XY YZ") ,App will show alert msg.
 - Typing second player cards on text block with same condition of first player.
+- Now you will see on hand cards of first player and second player.
+  You can clear them by clear cards button if you want to fill another group of cards.
+- Press Compare button to compare which one higher. (If someone haven't enough card,App will show alert msg)
+- Finally, You could play again by pressing New Game button on top of screen.
 
+# Code structure and dependencies
+===================================
+- Kotlin language
+- MPV on presentation layer
+- Using RxJava
+- UnitTest with mockito Kotlin and JUnit
