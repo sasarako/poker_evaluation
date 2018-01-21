@@ -1,4 +1,4 @@
-package com.sasara.pokergame.data
+package com.sasara.pokergame.data.entity
 
 /**
  * Created by sasara on 19/1/2018 AD.

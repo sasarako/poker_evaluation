@@ -1,8 +1,7 @@
-package com.sasara.pokergame.usecase
+package com.sasara.pokergame.domain.usecase
 
-import android.util.Log
-import com.sasara.pokergame.data.Card
-import com.sasara.pokergame.dataprovider.datasource.CardProviderInterface
+import com.sasara.pokergame.data.entity.Card
+import com.sasara.pokergame.data.datasource.CardProviderInterface
 
 /**
  * Created by sasara on 20/1/2018 AD.

@@ -1,7 +1,6 @@
-package com.sasara.pokergame.dataprovider.datasource
+package com.sasara.pokergame.data.datasource
 
-import com.sasara.pokergame.data.Card
-import io.reactivex.Observable
+import com.sasara.pokergame.data.entity.Card
 
 /**
  * Created by sasara on 19/1/2018 AD.

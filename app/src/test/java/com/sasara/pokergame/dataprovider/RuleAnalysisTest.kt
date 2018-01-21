@@ -1,7 +1,7 @@
 package com.sasara.pokergame.dataprovider
 
-import com.sasara.pokergame.data.Card
-import com.sasara.pokergame.hand.PokerHandType
+import com.sasara.pokergame.data.entity.Card
+import com.sasara.pokergame.common.constant.PokerHandType
 import io.reactivex.android.plugins.RxAndroidPlugins
 import io.reactivex.plugins.RxJavaPlugins
 import io.reactivex.schedulers.Schedulers

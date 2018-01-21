@@ -1,10 +1,10 @@
 package com.sasara.pokergame.presentation
 
 import com.sasara.pokergame.common.ReadWriteWeakRefDelegate
-import com.sasara.pokergame.data.CompareResult
+import com.sasara.pokergame.data.entity.CompareResult
 import com.sasara.pokergame.extension.addTo
-import com.sasara.pokergame.usecase.CompareResultUseCase
-import com.sasara.pokergame.usecase.OnHandCardAddRemoveUseCase
+import com.sasara.pokergame.domain.usecase.CompareResultUseCase
+import com.sasara.pokergame.domain.usecase.OnHandCardAddRemoveUseCase
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers

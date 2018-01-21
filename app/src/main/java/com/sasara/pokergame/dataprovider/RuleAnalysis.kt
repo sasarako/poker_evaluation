@@ -1,8 +1,8 @@
 package com.sasara.pokergame.dataprovider
 
-import com.sasara.pokergame.data.Card
-import com.sasara.pokergame.data.OnHandResult
-import com.sasara.pokergame.hand.PokerHandType
+import com.sasara.pokergame.data.entity.Card
+import com.sasara.pokergame.data.entity.OnHandResult
+import com.sasara.pokergame.common.constant.PokerHandType
 import io.reactivex.Observable
 
 /**

@@ -1,4 +1,4 @@
-package com.sasara.pokergame.hand
+package com.sasara.pokergame.common.constant
 
 /**
  * Created by sasara on 19/1/2018 AD.

@@ -1,10 +1,10 @@
 package com.sasara.pokergame.presentation
 
 import com.nhaarman.mockito_kotlin.*
-import com.sasara.pokergame.data.Card
-import com.sasara.pokergame.data.CompareResult
-import com.sasara.pokergame.usecase.CompareResultUseCase
-import com.sasara.pokergame.usecase.OnHandCardAddRemoveUseCase
+import com.sasara.pokergame.data.entity.Card
+import com.sasara.pokergame.data.entity.CompareResult
+import com.sasara.pokergame.domain.usecase.CompareResultUseCase
+import com.sasara.pokergame.domain.usecase.OnHandCardAddRemoveUseCase
 import io.reactivex.Observable
 import io.reactivex.android.plugins.RxAndroidPlugins
 import io.reactivex.plugins.RxJavaPlugins

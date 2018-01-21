@@ -8,10 +8,10 @@ import android.widget.TextView
 import android.widget.Toast
 import com.sasara.pokergame.R
 import com.sasara.pokergame.dataprovider.RuleAnalysis
-import com.sasara.pokergame.dataprovider.datasource.OnHandCardsProviderImpl
-import com.sasara.pokergame.usecase.CardAddRemoveUseCaseImpl
-import com.sasara.pokergame.usecase.CardAnalysisUseCase
-import com.sasara.pokergame.usecase.CompareResultUseCase
+import com.sasara.pokergame.data.datasource.OnHandCardsProviderImpl
+import com.sasara.pokergame.domain.usecase.CardAddRemoveUseCaseImpl
+import com.sasara.pokergame.domain.usecase.CardAnalysisUseCase
+import com.sasara.pokergame.domain.usecase.CompareResultUseCase
 import kotlinx.android.synthetic.main.activity_main.*
 
 class PokerActivity : AppCompatActivity(), PokerContract.View {

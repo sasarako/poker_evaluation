@@ -1,4 +1,4 @@
-package com.sasara.pokergame.dataprovider.repository
+package com.sasara.pokergame.domain.usecase
 
 import io.reactivex.Observable
 

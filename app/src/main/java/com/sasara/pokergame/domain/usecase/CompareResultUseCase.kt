@@ -1,8 +1,6 @@
-package com.sasara.pokergame.usecase
+package com.sasara.pokergame.domain.usecase
 
-import android.util.Log
-import com.sasara.pokergame.data.CompareResult
-import com.sasara.pokergame.dataprovider.repository.ObservableUseCase
+import com.sasara.pokergame.data.entity.CompareResult
 import com.sasara.pokergame.extension.toFullName
 import io.reactivex.Observable
 import io.reactivex.functions.BiFunction

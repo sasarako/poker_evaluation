@@ -1,11 +1,11 @@
-package com.sasara.pokergame.usecase
+package com.sasara.pokergame.domain.usecase
 
 import com.nhaarman.mockito_kotlin.doReturn
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.whenever
-import com.sasara.pokergame.data.CompareResult
-import com.sasara.pokergame.data.OnHandResult
-import com.sasara.pokergame.hand.PokerHandType
+import com.sasara.pokergame.data.entity.CompareResult
+import com.sasara.pokergame.data.entity.OnHandResult
+import com.sasara.pokergame.common.constant.PokerHandType
 import io.reactivex.Observable
 import io.reactivex.android.plugins.RxAndroidPlugins
 import io.reactivex.plugins.RxJavaPlugins
