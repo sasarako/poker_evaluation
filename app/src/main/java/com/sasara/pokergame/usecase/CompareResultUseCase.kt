@@ -15,7 +15,7 @@ val P1_WIN = "Somchai wins. with"
 val P2_WIN = "Somsak wins. with"
 val TIE = "Tie"
 
-class CompareResultUseCase(private val cardAnalysisUseCase1: CardAnalysisUseCase,
+open class CompareResultUseCase(private val cardAnalysisUseCase1: CardAnalysisUseCase,
                            private val cardAnalysisUseCase2: CardAnalysisUseCase)
     : ObservableUseCase<CompareResult> {
 

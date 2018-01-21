@@ -42,7 +42,6 @@ class RuleAnalysis() : ResultInterface<OnHandResult> {
                 }
 
         return Observable.just(OnHandResult(type = type,
-                fiveSortedOnHandCards = fiveSortedCards,
                 compareRanks = compareRanks))
 
     }
