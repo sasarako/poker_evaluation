@@ -3,8 +3,7 @@
 
 This sample project to evaluate poker cards on hand ,Compare between 2 on hand cards ,Which one higher
 and why higher than another.
-First player is represented to Somchai
-Second player is represented to Somsak
+First player is represented to Somchai and Second player is represented to Somsak.
 
 Basic card
 Each card has a suit which is one of Clubs, Diamonds, Hearts,
@@ -12,6 +11,7 @@ or Spades (denoted C, D, H, and S in the input data). Each card also has a value
 of 2, 3, 4, 5, 6, 7, 8, 9, 10, jack, queen, king, ace (denoted 2, 3, 4, 5, 6, 7, 8, 9, T, J, Q, K, A).
 
 App is quite rough UI ,Please focus on Input and Output
+
 Sample input/output
 
 Inputs ->
@@ -31,7 +31,7 @@ Somsak wins. with high card: Ace
 - Typing second player cards on text block with same condition of first player.
 - Now you will see on hand cards of first player and second player.
   You can clear them by clear cards button if you want to fill another group of cards.
-- Press Compare button to compare which one higher. (If someone haven't enough card,App will show alert msg)
+- Press Compare button to compare which one higher and let see the result but If someone haven't enough card,App will show alert msg
 - Finally, You could play again by pressing New Game button on top of screen.
 
 # Code structure and dependencies
