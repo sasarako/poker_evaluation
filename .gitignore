@@ -89,6 +89,7 @@ build/android-profile/profile-2018-01-18-15-32-02-126.rawproto
 .idea/libraries/com_android_support_design_26_1_0.xml
 .idea/libraries/com_android_support_recyclerview_v7_26_1_0.xml
 .idea/libraries/com_android_support_transition_26_1_0.xml
+.build/android-profile/
 build/android-profile/profile-2018-01-20-23-39-42-805.json
 build/android-profile/profile-2018-01-20-23-39-42-805.rawproto
 build/android-profile/profile-2018-01-20-23-40-39-147.json
@@ -212,18 +213,4 @@ build/android-profile/profile-2018-01-21-14-45-02-877.rawproto
 build/android-profile/profile-2018-01-21-14-47-16-236.json
 build/android-profile/profile-2018-01-21-14-47-16-236.rawproto
 build/android-profile/profile-2018-01-21-14-52-00-019.json
-build/android-profile/profile-2018-01-21-14-52-00-019.rawproto
-build/android-profile/profile-2018-01-21-14-53-23-007.json
-build/android-profile/profile-2018-01-21-14-53-23-007.rawproto
-build/android-profile/profile-2018-01-21-14-54-25-940.json
-build/android-profile/profile-2018-01-21-14-54-25-940.rawproto
-build/android-profile/profile-2018-01-21-14-55-24-373.json
-build/android-profile/profile-2018-01-21-14-55-24-373.rawproto
-build/android-profile/profile-2018-01-21-16-31-56-949.json
-build/android-profile/profile-2018-01-21-16-31-56-949.rawproto
-build/android-profile/profile-2018-01-21-16-33-48-411.json
-build/android-profile/profile-2018-01-21-16-33-48-411.rawproto
-build/android-profile/profile-2018-01-21-16-36-19-608.json
-build/android-profile/profile-2018-01-21-16-36-19-608.rawproto
-build/android-profile/profile-2018-01-21-16-39-12-810.json
-build/android-profile/profile-2018-01-21-16-39-12-810.rawproto
+
