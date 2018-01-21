@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- margin-->
+    <dimen name="horizontal_margin">16dp</dimen>
+    <dimen name="primary_margin">24dp</dimen>
+
+    <!-- Font Size-->
+    <dimen name="player_name_font_size">20sp</dimen>
+    <dimen name="result_font_size">20sp</dimen>
+
+</resources>
