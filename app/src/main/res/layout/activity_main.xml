@@ -52,7 +52,7 @@
             android:gravity="start|center_vertical"
             android:hint="@string/hint_on_hand_card"
             android:imeOptions="actionDone"
-            android:inputType="text"
+            android:inputType="textCapCharacters"
             android:maxLength="14"
             android:maxLines="1" />
 
@@ -99,7 +99,7 @@
             android:gravity="start|center_vertical"
             android:hint="@string/hint_on_hand_card"
             android:imeOptions="actionDone"
-            android:inputType="text"
+            android:inputType="textCapCharacters"
             android:maxLength="14"
             android:maxLines="1" />
 
