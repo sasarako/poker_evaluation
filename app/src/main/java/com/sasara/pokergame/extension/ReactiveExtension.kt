@@ -6,4 +6,4 @@ import io.reactivex.disposables.Disposable
 /**
  * Created by sasara on 21/1/2018 AD.
  */
-inline fun Disposable.addTo(composite: CompositeDisposable): Boolean = composite.add(this)
+fun Disposable.addTo(composite: CompositeDisposable): Boolean = composite.add(this)
