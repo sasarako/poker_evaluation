@@ -12,6 +12,8 @@ import org.junit.Test
 
 /**
  * Created by sasara on 20/1/2018 AD.
+ * Test RuleAnalysis
+ * @see com.sasara.pokergame.dataprovider.RuleAnalysis
  */
 class RuleAnalysisTest {
 

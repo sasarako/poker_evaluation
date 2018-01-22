@@ -15,6 +15,8 @@ import org.junit.Test
 
 /**
  * Created by sasara on 21/1/2018 AD.
+ * Test PokerPresenter
+ * @see com.sasara.pokergame.presentation.PokerPresenter
  */
 
 class PokerPresenterTest() {

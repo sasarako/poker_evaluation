@@ -16,6 +16,8 @@ import org.junit.Test
 
 /**
  * Created by sasara on 21/1/2018 AD.
+ * Test CompareResultUseCase
+ * @see com.sasara.pokergame.domain.usecase.CompareResultUseCase
  */
 
 class CompareResultUseCaseTest {

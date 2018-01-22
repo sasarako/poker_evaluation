@@ -7,6 +7,7 @@ import io.reactivex.Observable
 
 /**
  * Created by sasara on 19/1/2018 AD.
+ * UnitTest on RuleAnalysisTest
  */
 
 interface ResultInterface<T> {

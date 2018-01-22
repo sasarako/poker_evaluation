@@ -11,6 +11,8 @@ import org.junit.Test
 
 /**
  * Created by sasara on 21/1/2018 AD.
+ * Test OnHandCardAddRemoveUseCase
+ * @see com.sasara.pokergame.domain.usecase.OnHandCardAddRemoveUseCase
  */
 class OnHandCardAddRemoveUseCaseTest {
     private lateinit var onHandCardAddRemoveUseCase: OnHandCardAddRemoveUseCase
@@ -39,7 +41,7 @@ class OnHandCardAddRemoveUseCaseTest {
 
         doReturn(emptyCardList).whenever(cardProvider).getAllCards()
         val addingResult = onHandCardAddRemoveUseCase.isCanAddToHand(denotedString = "2H 3D 5S 9C KD")
-        //success to add
+        //Success to add
         Assert.assertTrue(addingResult)
 
     }
@@ -60,7 +62,7 @@ class OnHandCardAddRemoveUseCaseTest {
         doReturn(fewCardsList).whenever(cardProvider).getAllCards()
         val addingResult = onHandCardAddRemoveUseCase.isCanAddToHand(denotedString = "2H 3D")
 
-        //Fail to add
+        //Success to add
         Assert.assertTrue(addingResult)
     }
 

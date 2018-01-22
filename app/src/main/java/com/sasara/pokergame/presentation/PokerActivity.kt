@@ -85,6 +85,7 @@ class PokerActivity : AppCompatActivity(), PokerContract.View {
 
     override fun onDestroy() {
         super.onDestroy()
+        //Clear view and CompositeDisposable
         presenter.cleanUp()
     }
 

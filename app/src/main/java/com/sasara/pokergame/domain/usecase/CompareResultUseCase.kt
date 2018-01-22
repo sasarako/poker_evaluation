@@ -8,6 +8,7 @@ import io.reactivex.functions.BiFunction
 
 /**
  * Created by sasara on 9/20/2017 AD.
+ * UnitTest on CompareResultUseCaseTest
  */
 
 val TIE = "Tie"
@@ -50,7 +51,7 @@ open class CompareResultUseCase(private val cardAnalysisUseCase1: CardAnalysisUs
                                                                                 secondaryHigh = value1.toFullName())
                     } else if (value2 > value1) {
                         return@BiFunction t2.type.showName.pokerTypeToCompareResult(winner = CompareResult.P2_WIN,
-                                secondaryHigh = value2.toFullName())
+                                                                                secondaryHigh = value2.toFullName())
                     }
                 }
                 //Equal on every compare list
