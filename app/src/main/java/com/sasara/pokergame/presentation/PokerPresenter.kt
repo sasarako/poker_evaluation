@@ -2,9 +2,9 @@ package com.sasara.pokergame.presentation
 
 import com.sasara.pokergame.common.ReadWriteWeakRefDelegate
 import com.sasara.pokergame.data.entity.CompareResult
-import com.sasara.pokergame.extension.addTo
 import com.sasara.pokergame.domain.usecase.CompareResultUseCase
 import com.sasara.pokergame.domain.usecase.OnHandCardAddRemoveUseCase
+import com.sasara.pokergame.extension.addTo
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -48,7 +48,7 @@ class PokerPresenter(view: PokerContract.View,
             return
         }
 
-        compareResultUseCase.toObservable().subscribeOn(Schedulers.io())
+        compareResultUseCase.getCompareResultObservable().subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ compareResult: CompareResult ->
                     view?.showGameResult(compareResult.resultMsg)

@@ -10,8 +10,8 @@ import com.sasara.pokergame.R
 import com.sasara.pokergame.data.datasource.OnHandCardsProviderImpl
 import com.sasara.pokergame.dataprovider.RuleAnalysis
 import com.sasara.pokergame.domain.usecase.CardAddRemoveUseCaseImpl
-import com.sasara.pokergame.domain.usecase.CardAnalysisUseCase
-import com.sasara.pokergame.domain.usecase.CompareResultUseCase
+import com.sasara.pokergame.domain.usecase.CardAnalysisUseCaseImpl
+import com.sasara.pokergame.domain.usecase.CompareResultUseCaseImpl
 import com.sasara.pokergame.extension.showAlertDialog
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -25,13 +25,13 @@ class PokerActivity : AppCompatActivity(), PokerContract.View {
 
         val p1CardProvider = OnHandCardsProviderImpl()
         val p1CardAddingUseCase = CardAddRemoveUseCaseImpl(p1CardProvider)
-        val p1AnalysisUseCase = CardAnalysisUseCase(RuleAnalysis(), p1CardProvider)
+        val p1AnalysisUseCase = CardAnalysisUseCaseImpl(RuleAnalysis(), p1CardProvider)
 
         val p2CardProvider = OnHandCardsProviderImpl()
         val p2CardAddingUseCase = CardAddRemoveUseCaseImpl(p2CardProvider)
-        val p2AnalysisUseCase = CardAnalysisUseCase(RuleAnalysis(), p2CardProvider)
+        val p2AnalysisUseCase = CardAnalysisUseCaseImpl(RuleAnalysis(), p2CardProvider)
 
-        val compareUseCase = CompareResultUseCase(p1AnalysisUseCase, p2AnalysisUseCase)
+        val compareUseCase = CompareResultUseCaseImpl(p1AnalysisUseCase, p2AnalysisUseCase)
 
         presenter = PokerPresenter(view = this,
                 p1OnHandCardAddRemoveUseCase = p1CardAddingUseCase,

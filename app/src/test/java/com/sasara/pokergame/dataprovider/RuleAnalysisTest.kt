@@ -2,6 +2,7 @@ package com.sasara.pokergame.dataprovider
 
 import com.sasara.pokergame.data.entity.Card
 import com.sasara.pokergame.common.constant.PokerHandType
+import com.sasara.pokergame.data.entity.OnHandResult
 import io.reactivex.android.plugins.RxAndroidPlugins
 import io.reactivex.plugins.RxJavaPlugins
 import io.reactivex.schedulers.Schedulers
@@ -15,7 +16,7 @@ import org.junit.Test
  */
 class RuleAnalysisTest {
 
-    private val ruleAnalysis: RuleAnalysis = RuleAnalysis()
+    private val ruleAnalysis: ResultInterface<OnHandResult> = RuleAnalysis()
 
     @Before
     fun setup() {

@@ -13,18 +13,23 @@ val P1_WIN = "Somchai wins. with"
 val P2_WIN = "Somsak wins. with"
 val TIE = "Tie"
 
-open class CompareResultUseCase(private val cardAnalysisUseCase1: CardAnalysisUseCase,
-                           private val cardAnalysisUseCase2: CardAnalysisUseCase)
-    : ObservableUseCase<CompareResult> {
+interface CompareResultUseCase {
+    fun getCompareResultObservable(): Observable<CompareResult>
+}
 
-    override fun toObservable(): Observable<CompareResult> {
+
+open class CompareResultUseCaseImpl(private val cardAnalysisUseCase1: CardAnalysisUseCase,
+                                    private val cardAnalysisUseCase2: CardAnalysisUseCase)
+    : CompareResultUseCase {
+
+    override fun getCompareResultObservable(): Observable<CompareResult> {
 
         /**
          * ZipWith operation
          * Waiting 2 Observables are finish onNext().
          */
 
-        return cardAnalysisUseCase1.toObservable().zipWith(cardAnalysisUseCase2.toObservable(), BiFunction { t1, t2 ->
+        return cardAnalysisUseCase1.getOnHandResultObservable().zipWith(cardAnalysisUseCase2.getOnHandResultObservable(), BiFunction { t1, t2 ->
 
             if (t1.type.value > t2.type.value) {
                 //first player win with higher type
