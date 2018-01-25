@@ -21,8 +21,3 @@ class ReadWriteWeakRefDelegate<in R, T>() : ReadWriteProperty<R, T?> {
         weakRef = WeakReference(value)
     }
 }
-
-class ReadWeakRefDelegate<in R, out T>(obj: T) : ReadOnlyProperty<R, T?> {
-    private val weakRef = WeakReference(obj)
-    override fun getValue(thisRef: R, property: KProperty<*>): T? = weakRef.get()
-}

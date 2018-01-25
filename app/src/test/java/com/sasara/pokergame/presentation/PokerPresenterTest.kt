@@ -29,24 +29,24 @@ class PokerPresenterTest() {
     private val compareResultUseCase: CompareResultUseCase = mock()
 
     //Success mock
-    val enoughCardList1 = listOf<Card>(Card("2H"),
+    private val enoughCardList1 = listOf<Card>(Card("2H"),
             Card("3H"),
             Card("4H"),
             Card("5H"),
             Card("6H"))
 
-    val enoughCardList2 = listOf<Card>(Card("2S"),
+    private val enoughCardList2 = listOf<Card>(Card("2S"),
             Card("3S"),
             Card("4S"),
             Card("5S"),
             Card("6S"))
 
-    val notEnoughCardList = listOf<Card>(Card("2C"),
+    private val notEnoughCardList = listOf<Card>(Card("2C"),
             Card("3C"),
             Card("4C"),
             Card("5C"))
 
-    val compareResult = CompareResult(CompareResult.P1_WIN,
+    private val compareResult = CompareResult(CompareResult.P1_WIN,
             "Somsak wins. with high card: Ace")
 
     //Error mock
@@ -58,10 +58,10 @@ class PokerPresenterTest() {
         RxJavaPlugins.setIoSchedulerHandler { Schedulers.trampoline() }
         RxAndroidPlugins.setMainThreadSchedulerHandler { Schedulers.trampoline() }
 
-        presenter = PokerPresenter(view,
-                p1OnHandCardAddRemoveUseCase,
-                p2OnHandCardAddRemoveUseCase,
-                compareResultUseCase)
+        presenter = PokerPresenter(view = view,
+                p1OnHandCardAddRemoveUseCase = p1OnHandCardAddRemoveUseCase,
+                p2OnHandCardAddRemoveUseCase = p2OnHandCardAddRemoveUseCase,
+                compareResultUseCase = compareResultUseCase)
     }
 
     @After
@@ -73,7 +73,7 @@ class PokerPresenterTest() {
     @Test
     fun laddFirstPlayerCards_success_updateFirstPlayerCards() {
 
-        doReturn(true).whenever(p1OnHandCardAddRemoveUseCase).isCanAddToHand("2H 3D 5S 9C KD")
+        doReturn(true).whenever(p1OnHandCardAddRemoveUseCase).updateOnHandCard("2H 3D 5S 9C KD")
         doReturn("2H 3D 5S 9C KD").whenever(p1OnHandCardAddRemoveUseCase).getOnHandAllCardsDenoted()
 
         presenter.addFirstPlayerCards("2H 3D 5S 9C KD")
@@ -88,7 +88,7 @@ class PokerPresenterTest() {
     @Test
     fun laddFirstPlayerCards_fail_showAddingFail() {
 
-        doReturn(false).whenever(p2OnHandCardAddRemoveUseCase).isCanAddToHand("2H 3D 5S 9C KD")
+        doReturn(false).whenever(p2OnHandCardAddRemoveUseCase).updateOnHandCard("2H 3D 5S 9C KD")
         doReturn("2H 3D 5S 9C KD").whenever(p2OnHandCardAddRemoveUseCase).getOnHandAllCardsDenoted()
 
         presenter.addSecondPlayerCards("2H 3D 5S 9C KD")
@@ -102,7 +102,7 @@ class PokerPresenterTest() {
     @Test
     fun laddSecondPlayerCards_success_updateFirstPlayerCards() {
 
-        doReturn(true).whenever(p2OnHandCardAddRemoveUseCase).isCanAddToHand("2H 3D 5S 9C KD")
+        doReturn(true).whenever(p2OnHandCardAddRemoveUseCase).updateOnHandCard("2H 3D 5S 9C KD")
         doReturn("2H 3D 5S 9C KD").whenever(p2OnHandCardAddRemoveUseCase).getOnHandAllCardsDenoted()
 
         presenter.addSecondPlayerCards("2H 3D 5S 9C KD")
@@ -117,7 +117,7 @@ class PokerPresenterTest() {
     @Test
     fun laddSecondPlayerCards_fail_showAddingFail() {
 
-        doReturn(false).whenever(p1OnHandCardAddRemoveUseCase).isCanAddToHand("2H 3D 5S 9C KD")
+        doReturn(false).whenever(p1OnHandCardAddRemoveUseCase).updateOnHandCard("2H 3D 5S 9C KD")
         doReturn("2H 3D 5S 9C KD").whenever(p1OnHandCardAddRemoveUseCase).getOnHandAllCardsDenoted()
 
         presenter.addFirstPlayerCards("2H 3D 5S 9C KD")
@@ -133,7 +133,7 @@ class PokerPresenterTest() {
 
         doReturn(enoughCardList1).whenever(p1OnHandCardAddRemoveUseCase).getOnHandCards()
         doReturn(enoughCardList2).whenever(p2OnHandCardAddRemoveUseCase).getOnHandCards()
-        doReturn(Observable.just(compareResult)).whenever(compareResultUseCase).toObservable()
+        doReturn(Observable.just(compareResult)).whenever(compareResultUseCase).getCompareResultObservable()
 
         presenter.analysisResult()
 
@@ -150,7 +150,7 @@ class PokerPresenterTest() {
 
         doReturn(notEnoughCardList).whenever(p1OnHandCardAddRemoveUseCase).getOnHandCards()
         doReturn(enoughCardList2).whenever(p2OnHandCardAddRemoveUseCase).getOnHandCards()
-        doReturn(Observable.just(compareResult)).whenever(compareResultUseCase).toObservable()
+        doReturn(Observable.just(compareResult)).whenever(compareResultUseCase).getCompareResultObservable()
 
         presenter.analysisResult()
 
@@ -167,7 +167,7 @@ class PokerPresenterTest() {
 
         doReturn(enoughCardList1).whenever(p1OnHandCardAddRemoveUseCase).getOnHandCards()
         doReturn(notEnoughCardList).whenever(p2OnHandCardAddRemoveUseCase).getOnHandCards()
-        doReturn(Observable.just(compareResult)).whenever(compareResultUseCase).toObservable()
+        doReturn(Observable.just(compareResult)).whenever(compareResultUseCase).getCompareResultObservable()
 
         presenter.analysisResult()
 

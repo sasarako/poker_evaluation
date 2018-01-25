@@ -10,6 +10,7 @@
     <string name="main_new_game_txt" translatable="false">New Game</string>
 
     <string name="alert_error_adding_fail" translatable="false">Adding fail</string>
+    <string name="alert_error_ok" translatable="false">Ok</string>
     <string name="alert_error_p1_need_more_card" translatable="false">Somchai need more card</string>
     <string name="alert_error_p2_need_more_card" translatable="false">Somsak need more card</string>
 
