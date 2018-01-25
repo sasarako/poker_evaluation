@@ -23,14 +23,14 @@ class PokerPresenter(view: PokerContract.View,
 
     override fun addFirstPlayerCards(denotedCard: String) {
 
-        if (!p1OnHandCardAddRemoveUseCase.isCanAddToHand(denotedCard)) {
+        if (!p1OnHandCardAddRemoveUseCase.updateOnHandCard(denotedCard)) {
             view?.showErrorAddingFail()
         }
         view?.updateFirstPlayerCards(p1OnHandCardAddRemoveUseCase.getOnHandAllCardsDenoted())
     }
 
     override fun addSecondPlayerCards(denotedCard: String) {
-        if (!p2OnHandCardAddRemoveUseCase.isCanAddToHand(denotedCard)) {
+        if (!p2OnHandCardAddRemoveUseCase.updateOnHandCard(denotedCard)) {
             view?.showErrorAddingFail()
         }
         view?.updateSecondPlayerCards(p2OnHandCardAddRemoveUseCase.getOnHandAllCardsDenoted())

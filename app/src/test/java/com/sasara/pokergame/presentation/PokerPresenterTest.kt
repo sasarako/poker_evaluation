@@ -71,7 +71,7 @@ class PokerPresenterTest() {
     @Test
     fun laddFirstPlayerCards_success_updateFirstPlayerCards() {
 
-        doReturn(true).whenever(p1OnHandCardAddRemoveUseCase).isCanAddToHand("2H 3D 5S 9C KD")
+        doReturn(true).whenever(p1OnHandCardAddRemoveUseCase).updateOnHandCard("2H 3D 5S 9C KD")
         doReturn("2H 3D 5S 9C KD").whenever(p1OnHandCardAddRemoveUseCase).getOnHandAllCardsDenoted()
 
         presenter.addFirstPlayerCards("2H 3D 5S 9C KD")
@@ -86,7 +86,7 @@ class PokerPresenterTest() {
     @Test
     fun laddFirstPlayerCards_fail_showAddingFail() {
 
-        doReturn(false).whenever(p2OnHandCardAddRemoveUseCase).isCanAddToHand("2H 3D 5S 9C KD")
+        doReturn(false).whenever(p2OnHandCardAddRemoveUseCase).updateOnHandCard("2H 3D 5S 9C KD")
         doReturn("2H 3D 5S 9C KD").whenever(p2OnHandCardAddRemoveUseCase).getOnHandAllCardsDenoted()
 
         presenter.addSecondPlayerCards("2H 3D 5S 9C KD")
@@ -100,7 +100,7 @@ class PokerPresenterTest() {
     @Test
     fun laddSecondPlayerCards_success_updateFirstPlayerCards() {
 
-        doReturn(true).whenever(p2OnHandCardAddRemoveUseCase).isCanAddToHand("2H 3D 5S 9C KD")
+        doReturn(true).whenever(p2OnHandCardAddRemoveUseCase).updateOnHandCard("2H 3D 5S 9C KD")
         doReturn("2H 3D 5S 9C KD").whenever(p2OnHandCardAddRemoveUseCase).getOnHandAllCardsDenoted()
 
         presenter.addSecondPlayerCards("2H 3D 5S 9C KD")
@@ -115,7 +115,7 @@ class PokerPresenterTest() {
     @Test
     fun laddSecondPlayerCards_fail_showAddingFail() {
 
-        doReturn(false).whenever(p1OnHandCardAddRemoveUseCase).isCanAddToHand("2H 3D 5S 9C KD")
+        doReturn(false).whenever(p1OnHandCardAddRemoveUseCase).updateOnHandCard("2H 3D 5S 9C KD")
         doReturn("2H 3D 5S 9C KD").whenever(p1OnHandCardAddRemoveUseCase).getOnHandAllCardsDenoted()
 
         presenter.addFirstPlayerCards("2H 3D 5S 9C KD")
