@@ -27,7 +27,6 @@ class RuleAnalysis : ResultInterface<OnHandResult> {
         //Sample 4S 5S 4C 5C 9H = 9,4,5 (Compare start by last index to first index)
         val compareRanks = groupedAndSortedCards.map { it.first }.map { it }
 
-
         val type: PokerHandType =
                 when {
                     isStraightFlush(fiveSortedCards) -> PokerHandType.STRAIGHT_FLUSH
