@@ -38,7 +38,7 @@ class OnHandCardAddRemoveUseCaseTest {
     fun testAddingCards_5CardsWith5Slots_ableToAdd() {
 
         doReturn(emptyCardList).whenever(cardProvider).getAllCards()
-        val addingResult = onHandCardAddRemoveUseCase.isCanAddToHand(denotedString = "2H 3D 5S 9C KD")
+        val addingResult = onHandCardAddRemoveUseCase.updateOnHandCard(denotedString = "2H 3D 5S 9C KD")
         //success to add
         Assert.assertTrue(addingResult)
 
@@ -48,7 +48,7 @@ class OnHandCardAddRemoveUseCaseTest {
     fun testAddingCards_5CardsWrongFormatWith5Slot_failToAdd() {
 
         doReturn(emptyCardList).whenever(cardProvider).getAllCards()
-        val addingResult = onHandCardAddRemoveUseCase.isCanAddToHand(denotedString = "ZH YD XS 9C KD")
+        val addingResult = onHandCardAddRemoveUseCase.updateOnHandCard(denotedString = "ZH YD XS 9C KD")
         //Fail to add
         Assert.assertFalse(addingResult)
 
@@ -58,7 +58,7 @@ class OnHandCardAddRemoveUseCaseTest {
     fun testAddingCards_2CardsWith2Slots_ableToAdd() {
 
         doReturn(fewCardsList).whenever(cardProvider).getAllCards()
-        val addingResult = onHandCardAddRemoveUseCase.isCanAddToHand(denotedString = "2H 3D")
+        val addingResult = onHandCardAddRemoveUseCase.updateOnHandCard(denotedString = "2H 3D")
 
         //Fail to add
         Assert.assertTrue(addingResult)
@@ -68,7 +68,7 @@ class OnHandCardAddRemoveUseCaseTest {
     fun testAddingCards_5CardsWithoutSlot_failToAdd() {
 
         doReturn(fullCardsList).whenever(cardProvider).getAllCards()
-        val addingResult = onHandCardAddRemoveUseCase.isCanAddToHand(denotedString = "2H 3D 5S 9C KD")
+        val addingResult = onHandCardAddRemoveUseCase.updateOnHandCard(denotedString = "2H 3D 5S 9C KD")
         //Fail to add
         Assert.assertFalse(addingResult)
 

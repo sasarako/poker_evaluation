@@ -20,7 +20,7 @@ import org.junit.Test
 
 class CompareResultUseCaseTest {
 
-    private lateinit var compareResultUseCaseTest: CompareResultUseCase
+    private lateinit var compareResultUseCase: CompareResultUseCase
     private val cardAnalysisUseCase1: CardAnalysisUseCase = mock()
     private val cardAnalysisUseCase2: CardAnalysisUseCase = mock()
 
@@ -29,7 +29,7 @@ class CompareResultUseCaseTest {
         RxJavaPlugins.setIoSchedulerHandler { Schedulers.trampoline() }
         RxAndroidPlugins.setMainThreadSchedulerHandler { Schedulers.trampoline() }
 
-        compareResultUseCaseTest = CompareResultUseCase(cardAnalysisUseCase1, cardAnalysisUseCase2)
+        compareResultUseCase = CompareResultUseCaseImpl(cardAnalysisUseCase1, cardAnalysisUseCase2)
     }
 
     @After
@@ -46,10 +46,10 @@ class CompareResultUseCaseTest {
         val p2OnHandResult = OnHandResult(type = PokerHandType.TWO_PAIRS,
                 compareRanks = listOf())
 
-        doReturn(Observable.just(p1OnHandResult)).whenever(cardAnalysisUseCase1).toObservable()
-        doReturn(Observable.just(p2OnHandResult)).whenever(cardAnalysisUseCase2).toObservable()
+        doReturn(Observable.just(p1OnHandResult)).whenever(cardAnalysisUseCase1).getOnHandResultObservable()
+        doReturn(Observable.just(p2OnHandResult)).whenever(cardAnalysisUseCase2).getOnHandResultObservable()
 
-        val testObserver = compareResultUseCaseTest.toObservable().test()
+        val testObserver = compareResultUseCase.getCompareResultObservable().test()
 
         testObserver.assertValue { compareResult ->
             compareResult.result == CompareResult.P1_WIN
@@ -65,10 +65,10 @@ class CompareResultUseCaseTest {
         val p2OnHandResult = OnHandResult(type = PokerHandType.FULL_HOUSE,
                 compareRanks = listOf())
 
-        doReturn(Observable.just(p1OnHandResult)).whenever(cardAnalysisUseCase1).toObservable()
-        doReturn(Observable.just(p2OnHandResult)).whenever(cardAnalysisUseCase2).toObservable()
+        doReturn(Observable.just(p1OnHandResult)).whenever(cardAnalysisUseCase1).getOnHandResultObservable()
+        doReturn(Observable.just(p2OnHandResult)).whenever(cardAnalysisUseCase2).getOnHandResultObservable()
 
-        val testObserver = compareResultUseCaseTest.toObservable().test()
+        val testObserver = compareResultUseCase.getCompareResultObservable().test()
 
         testObserver.assertValue { compareResult ->
             compareResult.result == CompareResult.P2_WIN
@@ -86,10 +86,10 @@ class CompareResultUseCaseTest {
         val p2OnHandResult = OnHandResult(type = PokerHandType.THREE_OF_A_KIND,
                 compareRanks = listOf(2, 6, 3))
 
-        doReturn(Observable.just(p1OnHandResult)).whenever(cardAnalysisUseCase1).toObservable()
-        doReturn(Observable.just(p2OnHandResult)).whenever(cardAnalysisUseCase2).toObservable()
+        doReturn(Observable.just(p1OnHandResult)).whenever(cardAnalysisUseCase1).getOnHandResultObservable()
+        doReturn(Observable.just(p2OnHandResult)).whenever(cardAnalysisUseCase2).getOnHandResultObservable()
 
-        val testObserver = compareResultUseCaseTest.toObservable().test()
+        val testObserver = compareResultUseCase.getCompareResultObservable().test()
 
         testObserver.assertValue { compareResult ->
             compareResult.result == CompareResult.P1_WIN
@@ -107,10 +107,10 @@ class CompareResultUseCaseTest {
         val p2OnHandResult = OnHandResult(type = PokerHandType.STRAIGHT,
                 compareRanks = listOf(5, 6, 7, 8, 9))
 
-        doReturn(Observable.just(p1OnHandResult)).whenever(cardAnalysisUseCase1).toObservable()
-        doReturn(Observable.just(p2OnHandResult)).whenever(cardAnalysisUseCase2).toObservable()
+        doReturn(Observable.just(p1OnHandResult)).whenever(cardAnalysisUseCase1).getOnHandResultObservable()
+        doReturn(Observable.just(p2OnHandResult)).whenever(cardAnalysisUseCase2).getOnHandResultObservable()
 
-        val testObserver = compareResultUseCaseTest.toObservable().test()
+        val testObserver = compareResultUseCase.getCompareResultObservable().test()
 
         testObserver.assertValue { compareResult ->
             compareResult.result == CompareResult.P2_WIN
@@ -128,10 +128,10 @@ class CompareResultUseCaseTest {
         val p2OnHandResult = OnHandResult(type = PokerHandType.STRAIGHT_FLUSH,
                 compareRanks = listOf(3, 4, 5, 6, 7))
 
-        doReturn(Observable.just(p1OnHandResult)).whenever(cardAnalysisUseCase1).toObservable()
-        doReturn(Observable.just(p2OnHandResult)).whenever(cardAnalysisUseCase2).toObservable()
+        doReturn(Observable.just(p1OnHandResult)).whenever(cardAnalysisUseCase1).getOnHandResultObservable()
+        doReturn(Observable.just(p2OnHandResult)).whenever(cardAnalysisUseCase2).getOnHandResultObservable()
 
-        val testObserver = compareResultUseCaseTest.toObservable().test()
+        val testObserver = compareResultUseCase.getCompareResultObservable().test()
 
         testObserver.assertValue { compareResult ->
             compareResult.result == CompareResult.TIE

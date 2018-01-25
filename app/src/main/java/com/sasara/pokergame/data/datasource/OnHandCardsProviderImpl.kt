@@ -12,7 +12,7 @@ interface CardProviderInterface<T> {
     fun clearAllCards()
 }
 
-class OnHandCardsProviderImpl() : CardProviderInterface<Card> {
+class OnHandCardsProviderImpl : CardProviderInterface<Card> {
 
     private var cardList = mutableListOf<Card>()
 
